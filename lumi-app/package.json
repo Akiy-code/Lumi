@@ -1,16 +1,44 @@
 {
-  "name": "lumi-app",
+  "name": "lumi",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "A cute Pomodoro timer overlay app",
+  "main": "main.js",
+  "author": "You",
+  "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-builder --win portable",
+    "build:dir": "electron-builder --win --dir"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
-    "electron": "^39.2.7"
+    "electron": "^39.2.7",
+    "electron-builder": "^26.4.0"
+  },
+  "build": {
+    "appId": "com.lumi.pomodoro",
+    "productName": "Lumi",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "index.html",
+      "styles.css",
+      "timer.js"
+    ],
+    "win": {
+      "target": ["portable", "nsis"],
+      "icon": "icon.ico",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": true,
+      "installerIcon": "icon.ico",
+      "uninstallerIcon": "icon.ico",
+      "artifactName": "Lumi-Setup.exe"
+    },
+    "portable": {
+      "artifactName": "Lumi.exe"
+    }
   }
 }
