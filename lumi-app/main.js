@@ -1,5 +1,5 @@
 
-// main.js - Creates the Electron window for Lumi
+// main.js - Creates the Electron window for Lumi app
 
 const { app, BrowserWindow, screen, ipcMain } = require("electron");
 
